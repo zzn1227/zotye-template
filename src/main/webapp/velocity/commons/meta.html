@@ -1,0 +1,76 @@
+<link rel="stylesheet" type="text/css" href="/css/ext-all.css" /> 
+<script type="text/javascript" src="/js/library/ext-base.js"></script>
+<script type="text/javascript" src="/js/library/ext-all.js"></script>
+<script type="text/javascript" src="/js/library/ext-lang-zh_CN.js"></script>
+<script type="text/javascript" src="/js/factory.js"></script>
+<script type="text/javascript" src="/js/tools/help.js"></script>
+<script type="text/javascript" src="/js/library/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/js/library/jquery.blockUI.js"></script>
+<script type="text/javascript">
+    Ext.BLANK_IMAGE_URL = '/images/default/s.gif';
+    var myWaitMask;
+    
+    function showWaitMask() {
+    	myWaitMask = new Ext.LoadMask(Ext.getBody(), {
+    		msg: "Please Wait ...",
+    		msgCls: "x-mask-loading"
+    	});
+    	myWaitMask.show();
+    };
+    
+    function openWindow(url) {
+    	window.open(url, '', 'width=980,height=625,location=no,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=no,screenX=100,screenY=100');
+    }
+    
+    function openWindow1(url, width, height) {
+    	window.open(url, '', 'width=' + width + ',height=' + height + ',location=no,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=no,screenX=100,screenY=100');
+    }
+    
+    function openWindowDiy(url, width, height, left, top) {
+    	window.open(url, '', 'width=' + width + ',height=' + height + ',location=no,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=no,left=' + left + ',top=' + top);
+    }
+    
+    function addTab(url, title) {
+    	parent.window.Ext.getCmp('doc-body').loadClass(url, title);
+    };
+    
+    function removeTab() {
+    	var tabPanel = parent.window.Ext.getCmp('doc-body');
+    	return tabPanel.remove(tabPanel.getActiveTab(), true);
+    }
+    
+    function setActiveTab(url) {
+    	var tabPanel = parent.window.Ext.getCmp('doc-body');
+    	if (tabPanel) {
+    		var id = 'docs-' + href;
+    		var tab = tabPanel.getComponent(id);
+    		if (tab) {
+    			tabPanel.setActiveTab(tab);
+    		}
+    	}
+    };
+    
+    function refleshDefaultTab() {
+    	var tabPanel = parent.window.Ext.getCmp('doc-body');
+    	if (tabPanel) {
+    		var id = 'welcome-panel';
+    		var tab = tabPanel.getComponent(id);
+    		if (tab) {
+    			tabPanel.load({
+    				url: 'role_frameTransfer.do',
+    				params: {
+    					navigateUrl: '/ztles/message_getReceivedList.do'
+    				}
+    			});
+    		}
+    	}
+    }
+    
+    
+    function round2(number, fractionDigits) {
+    	with(Math) {
+    		return round(number * pow(10, fractionDigits)) / pow(10, fractionDigits);
+    	}
+    }
+</script>
+

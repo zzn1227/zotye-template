@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Error</title>
+		<script type="text/javascript" src="/js/jquery-1.11.1.js"></script>
+		<link rel="stylesheet" href="/css/style.css">
+	</head>
+
+	<body>
+		<table>
+			#foreach($carType in $carTypeList)
+				<tr>
+                    <td>$carType.carTypeNum</td>
+                    <td>$carType.carTypeName</td>
+                    <td>$carType.factoryNum</td>
+                </tr>
+			#end
+        </table>
+                    上一页: ${carTypeListPaginator.prePage} <br>
+                    当前页: ${carTypeListPaginator.page} <br>
+                    下一页: ${carTypeListPaginator.nextPage} <br>
+                    总页数: ${carTypeListPaginator.totalPages} <br>
+                    总条数: ${carTypeListPaginator.totalCount} <br>
+	</body>
+</html>

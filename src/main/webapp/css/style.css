@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+.tbl_{
+	width:100%;
+	border:1px solid #8DB2E3;
+	border-collapse:collapse;
+	margin-top:8px;
+}
+.header{
+	text-align:center;
+	background-color:#8DB2E3;
+	height:30px;
+}
+.content{
+	border:1px solid #8DB2E3;
+	text-align:center;
+	height:30px;
+}
+
+.content1{
+	border:1px solid #8DB2E3;
+	text-align:left;
+	height:30px;
+}
+
+.nonResult{
+	text-align:center;
+	color:#FF0000;
+	font-size:14px;
+	padding-top:8px;
+}
+
+<!--
+body {
+	font-size: 12px;
+	margin:0px;
+}
+td{
+	font-size: 12px; 
+}
+a {
+	text-decoration: none;	color: #777777;
+}
+a:hover {
+	color: red;
+}
+
+
+.btn_grey {
+	font-family: "宋体";	font-size: 9pt;color: #333333;	
+	background-color: #eeeeee;cursor: hand;padding:1px;height:19px;
+	border-top: 1px solid #FFFFFF;border-right:1px solid #666666;
+	border-bottom: 1px solid #666666;border-left: 1px solid #FFFFFF;
+}
+
+.align-center{   
+    margin:0 auto;      /* 居中 这个是必须的，，其它的属性非必须 */   
+    width:500px;        /* 给个宽度 顶到浏览器的两边就看不出居中效果了 */   
+    background:red;     /* 背景色 */   
+    text-align:center;  /* 文字等内容居中 */   
+}    
+  
+.word_dark {
+	font-size: 9pt;
+	color: #6A3E03;
+}
+.word_login{
+	font-size:9pt;
+	color:#7E5A03;
+}
+.word_orange {
+	font-size: 9pt;
+	color: #FF6600;
+}
+.word_white {
+	font-size: 9pt;
+	color: #FFFFFF;
+}
+.txt_grey {
+	font-family: "宋体";
+	font-size: 9pt;
+	color: #333333;
+	border: 1px solid #999999;
+	width:110;
+}
+.txt_suppliername{
+	font-family: "宋体";
+	font-size: 9pt;
+	color: #333333;
+	border: 1px solid #999999;
+	width:200;
+}
+input {
+	font-family: "宋体";
+	font-size: 9pt;
+	color: #333333;
+	border: 1px solid #999999;
+}
+.logininput{
+	height:22px;
+	border-color:#777777;
+	border-size:1px;}
+.wenbenkuang {
+	font-family: "宋体";
+	font-size: 9pt;
+	color: #333333;
+	border: 1px solid #999999;
+}
+.search  { font-family: 宋体; font-size: 9pt; color: #000000; background-color: #EEEEEE; 
+           border: 1px Hidden #000000; }
+.tableBorder {
+	border: #FBE5AC 1px solid
+}
+.tableBorder_grey {
+	border: #dddddd 1px solid
+}
+.tableBorder_gray {
+	border: #8DB2E3 1px solid
+}
+.tableBorder_Top{
+	border:1px solid #9CA6C6;
+	border-bottom-style:none;
+	border-left-style:none; 
+	border-right-style:none
+}
+.tableBorder_Botton{
+	border:1px solid #9CA6C6;
+	border-top-style:none;
+	border-left-style:none; 
+	border-right-style:none
+}
+hr{
+color:#FAE9A3;
+}
+.ToolTip {
+	BORDER-RIGHT: #8492b9 1px solid; BORDER-TOP: #8492b9 1px solid;
+	BORDER-LEFT: #8492b9 1px solid; COLOR: #333333; BORDER-BOTTOM: #8492b9 1px solid;
+	BACKGROUND-COLOR: #f9f9f9
+}
+.noborder{
+border-style:none;
+}
+.tableBorder_B{
+	border:1px solid #9CA6C6;
+	border-left-style:none; 
+	border-right-style:none;
+	border-Top-style:none; 
+}
+.menuitems1{
+	margin:2px;padding:1px;word-break:keep-all;background-image:url("../images/item_out.gif");
+}
+div.quote{margin:5px 20px;border:1px solid #8492b9;padding:5px;background:#8492b9 ;line-height : normal ;
+}
+div.HtmlCode{margin:5px 20px;border:1px solid #AAAAAA;padding:5px; background:#FDFDDF ;
+font-size:12px;font-family:Tahoma;font-style : oblique;line-height : normal ;font-weight:bold;
+}
+.menuskin {
+	BORDER: #B0690B 1px solid; VISIBILITY: hidden;
+	POSITION: absolute; 
+	/*BACKGROUND-COLOR:#EFEFEF;*/
+	background-image:url("../images/item_out.gif");
+	background-repeat : repeat-y;
+    Filter: Alpha(Opacity=85);
+	}
+ 
+#linkcolor{
+	color:blue;
+}
+
+#logo{
+	float:left;
+	background-image:url("../images/printlogo.gif");
+	background-repeat:no-repeat;
+}
+-->
+
+.table_list_head{
+	background:#8DB2E3;
+	}
+	
+ul {
+list-style:none; /* 将默认的列表符号去掉 */
+
+}

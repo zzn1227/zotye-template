@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.persistence.rights.UserMapper" >
+
+  	<resultMap id="BaseResultMap" type="com.model.rights.User" >
+	    <id column="id" property="id" jdbcType="NUMERIC" />
+	    <result column="loginName" property="loginName" jdbcType="VARCHAR" />
+	    <result column="password" property="password" jdbcType="VARCHAR" />
+	    <result column="name" property="name" jdbcType="VARCHAR" />
+	    <result column="factoryNum" property="factoryNum" jdbcType="VARCHAR" />
+	    <result column="roleIds" property="roleIds" jdbcType="VARCHAR" />
+	    <result column="userType" property="userType" jdbcType="NUMERIC" />
+	    <result column="department" property="department" jdbcType="VARCHAR" />
+	    <result column="status" property="status" jdbcType="NUMERIC" />
+	    <result column="mobilephone" property="mobilephone" jdbcType="VARCHAR" />
+  	</resultMap>
+  	
+	<sql id="Base_Column_List" >
+	  id, loginName, password, name, factoryNum, roleIds, userType, department, status, mobilephone
+	</sql>
+	
+	<insert id="insert" parameterType="com.model.rights.User" >
+	  	insert into user (loginName, password, name, factoryNum, roleIds, userType,department, status, mobilephone)
+	  	values (#{loginName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{factoryNum,jdbcType=VARCHAR}, 
+	  		#{roleIds,jdbcType=VARCHAR}, #{userType,jdbcType=NUMERIC}, #{department,jdbcType=VARCHAR}, 
+	    	#{status,jdbcType=NUMERIC}, #{mobilephone,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="selectList" resultMap="BaseResultMap" parameterType="com.model.rights.User" >
+		select 
+		<include refid="Base_Column_List" />
+		from user u
+		<where>
+			<if test="id!=null">
+				u.id=#{id}
+			</if>
+			<if test="name!=null and name!=''">
+				and u.name like '%'||#{name}||'%'
+			</if>
+			<if test="loginName!=null and loginName!=''">
+				and u.loginName like '%'||#{loginName}||'%'
+			</if>
+			<if test="factoryNum!=null and factoryNum!=''">
+				and u.factoryNum=#{factoryNum}
+			</if>
+			<if test="userType!=null">
+				and u.userType=#{userType}
+			</if>
+			<if test="department!=null and department!=''">
+				and u.department like '%'||#{department}||'%'
+			</if>
+			<if test="status!=null">
+				and u.status=#{status}
+			</if>			
+		</where>
+	</select>
+	
+	<select id="checkUser" resultMap="BaseResultMap" parameterType="com.model.rights.User">
+		SELECT 
+		<include refid="Base_Column_List" />
+		 FROM user u
+		<where>
+			<if test="loginName!=null and loginName!=''">
+				and loginName = #{loginName}
+			</if>
+			<if test="name!=null and name!=''">
+				and name = #{name}
+			</if>
+			<if test="factoryNum!=null and factoryNum!=''">
+				and factoryNum=#{factoryNum}
+			</if>
+		</where>
+	</select>
+	
+  <update id="updateByPrimaryKeySelective" parameterType="com.model.rights.User" >
+    update user
+    <set >
+      <if test="loginName != null" >
+        loginName = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryNum != null" >
+        factoryNum = #{factoryNum,jdbcType=VARCHAR},
+      </if>
+      <if test="roleIds != null" >
+        roleIds = #{roleIds,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        userType = #{userType,jdbcType=NUMERIC},
+      </if>
+      <if test="department != null" >
+        DEPARTMENT = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=NUMERIC},
+      </if>
+      <if test="mobilephone != null" >
+        MOBILEPHONE = #{mobilephone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=NUMERIC}
+  </update>	
+	
+	
+	<!--  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ERPTEST.USERS
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ERPTEST.USERS
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  
+
+  
+  <insert id="insertSelective" parameterType="com.model.User" >
+    insert into ERPTEST.USERS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="loginname != null" >
+        LOGINNAME,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="factoryNum != null" >
+        FACTORY_NUM,
+      </if>
+      <if test="roleids != null" >
+        ROLEIDS,
+      </if>
+      <if test="usertype != null" >
+        USERTYPE,
+      </if>
+      <if test="suppliernum != null" >
+        SUPPLIERNUM,
+      </if>
+      <if test="department != null" >
+        DEPARTMENT,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="telephone != null" >
+        TELEPHONE,
+      </if>
+      <if test="mobilephone != null" >
+        MOBILEPHONE,
+      </if>
+      <if test="fax != null" >
+        FAX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="loginname != null" >
+        #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryNum != null" >
+        #{factoryNum,jdbcType=VARCHAR},
+      </if>
+      <if test="roleids != null" >
+        #{roleids,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null" >
+        #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="suppliernum != null" >
+        #{suppliernum,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null" >
+        #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+
+  
+  <update id="updateByPrimaryKey" parameterType="com.model.User" >
+    update ERPTEST.USERS
+    set LOGINNAME = #{loginname,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      FACTORY_NUM = #{factoryNum,jdbcType=VARCHAR},
+      ROLEIDS = #{roleids,jdbcType=VARCHAR},
+      USERTYPE = #{usertype,jdbcType=VARCHAR},
+      SUPPLIERNUM = #{suppliernum,jdbcType=VARCHAR},
+      DEPARTMENT = #{department,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      MOBILEPHONE = #{mobilephone,jdbcType=VARCHAR},
+      FAX = #{fax,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+	-->  
+  
+</mapper>

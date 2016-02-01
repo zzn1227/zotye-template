@@ -1,0 +1,106 @@
+#include("commons/meta.html")
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>众泰企业资源计划系统</title>
+		<link rel="stylesheet" href="/css/style.css">
+		<script type="text/javascript" src="/js/login.js"></script>
+	</head>
+
+	<body onload="document.getElementById('loginName').focus();">
+		<table width="920" border="0" align="center" cellpadding="0" cellspacing="0" background="/images/les.jpg">
+			<tr>
+				<td>
+					<table width="874" border="0" align="center" cellpadding="0" cellspacing="0">
+						<tr>
+							<td height="142" valign="top">&nbsp;</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<td>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td valign="top">
+							<table width="100%" height="525" border="0" align="center" cellpadding="0" cellspacing="0">
+								<tr>
+									<td height="523" align="center" valign="top">
+										<table width="100%" height="271" border="0" cellpadding="0" cellspacing="0">
+											<tr>
+												<td height="471" align="right" valign="top" class="word_orange">
+													<table width="100%" height="255" border="0" cellpadding="0" cellspacing="0">
+														<tr>
+															<td height="135">&nbsp;</td>
+														</tr>
+														<tr>
+															<td>
+																<table width="100%" border="0" cellpadding="0" cellspacing="0">
+																	<tr>
+																		<td width="68%" height="45">
+																			&nbsp; <a href="javascript:openWin('/user/changePassword')" id="changePassword"></a>
+																		</td>
+																		<td width="10%" style="font-size: 17px" align="right">
+																			<b>生产基地：</b>
+																		</td>
+																		<td width="15%">
+																			<select id="factoryNum" name="factoryNum" style="font-size:17px;width:130" >
+																				<option value="">----请选择----</option>
+																				#foreach($factory in $factoryList)
+																					<option value="$factory.factoryNum">$factory.factoryName</option>
+                                                                    			#end
+																			</select>
+																		</td>
+																		<td width="7%" align="left" rowspan="3"></td>
+																	</tr>
+																	<tr>
+																		<td height="45">&nbsp;</td>
+																		<td style="font-size: 17px" align="right">
+																			<b>用户名：</b>
+																		</td>
+																		<td>
+																			<input name="loginName" type="text" class="logininput" id="loginName" size="20" style="height:25px; line-height:25px;">
+																		</td>
+																	</tr>
+																	<tr>
+																		<td height="45">&nbsp;</td>
+																		<td style="font-size: 17px" align="right">
+																			<b>密&nbsp;&nbsp;码：</b>
+																		</td>
+																		<td>
+																			<input name="password" type="password" class="logininput" id="password" size="20" style="height:25px; line-height:25px;" onkeydown="enterIn(event)">
+																		</td>
+																	</tr>
+																	<tr>
+																		<td height="45">&nbsp;</td>
+																		<td colspan="2" align="center">
+																			<input name="Submit" type="button" style="background:url(/images/button_center_bg.gif)" value="登录系统" onClick="return check()">
+																			&nbsp;
+																			<input name="Submit3" type="button" style="background:url(/images/button_center_bg.gif)" value="重  置" onClick="return reset()">
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+										<table width="100%" height="27" border="0" cellpadding="0" cellspacing="0">
+											<tr>
+												<td align="center" class="word_login">
+													技术支持： 众泰信息中心 电话：0579-87226227 <br> 本站请使用IE6.0或以上版本
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</table>
+	</body>
+</html>

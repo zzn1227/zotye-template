@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Error</title>
+		<script type="text/javascript" src="/js/jquery-1.11.1.js"></script>
+		<link rel="stylesheet" href="/css/style.css">
+	</head>
+
+	<body>
+		<div class="errorPage">
+			<p>欢迎 $!name</p>
+		</div>
+	</body>
+</html>

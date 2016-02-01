@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Error</title>
+		<script type="text/javascript" src="/js/jquery-1.11.1.js"></script>
+		<link rel="stylesheet" href="/css/style.css">
+		<script type="text/javascript">
+		 	$(document).ready(function(){
+		 		$("#button").click(function(){
+		 			jQuery.get("/asyncGetCarTypes",function(result){
+		 				alert(result[0].carTypeName);
+		 			});
+		 		})
+		 	});
+		</script>
+	</head>
+
+	<body>
+		<div class="errorPage">
+			<p>欢迎 $!name</p>
+			<p>当前时间  ${date.format('yyyy-MM-dd',$currentDate)}</p>
+			<p>$!message</p>
+		</div>
+		${Constants.NORMAL}
+		<button id="button">获取车系</button>
+		<div id="carTypeDiv"></div>
+		$Constants.USER_ENABLE
+	</body>
+</html>

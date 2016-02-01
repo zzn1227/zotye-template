@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tools>
+	<toolbox scope="request">  
+        <tool key="link" class="org.apache.velocity.tools.view.LinkTool"/>
+    </toolbox>
+    <toolbox scope="session">  
+        <tool key="map" class="java.util.HashMap"/>  
+    </toolbox>
+	<toolbox scope="application">  
+        <tool key="date" class="org.apache.velocity.tools.generic.DateTool"/>
+        <tool key="escape" class="org.apache.velocity.tools.generic.EscapeTool"/>
+        <tool key="math" class="org.apache.velocity.tools.generic.MathTool"/>
+        <!-- 获取常量 -->
+        <tool key="Constants" class="org.apache.velocity.tools.generic.FieldTool" include="com.utils.Constants"/>
+    </toolbox>
+</tools>
