@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.persistence.rights.RoleMapper" >
+
+  	<resultMap id="BaseResultMap" type="com.model.rights.Role" >
+	    <id column="id" property="id" jdbcType="NUMERIC" />
+	    <result column="name" property="name" jdbcType="VARCHAR" />
+	    <result column="description" property="description" jdbcType="VARCHAR" />
+	    <result column="menuIds" property="menuIds" jdbcType="VARCHAR" />
+	    <result column="authorityIds" property="authorityIds" jdbcType="VARCHAR" />
+	    <result column="functionIds" property="functionIds" jdbcType="VARCHAR" />
+	    <result column="roleType" property="roleType" jdbcType="NUMERIC" />
+	    <result column="factoryNum" property="factoryNum" jdbcType="VARCHAR" />
+  	</resultMap>
+  	
+	<sql id="Base_Column_List" >
+	  id, name, description, menuIds, authorityIds, functionIds, roleType, factoryNum
+	</sql>
+	
+	<insert id="insert" parameterType="com.model.rights.Role" >
+	  	insert into Role (name, description, menuIds, authorityIds, functionIds, roleType, factoryNum)
+	  	values (#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{menuIds,jdbcType=VARCHAR}, #{authorityIds,jdbcType=VARCHAR}, 
+	  		#{functionIds,jdbcType=VARCHAR}, #{roleType,jdbcType=NUMERIC}, #{factoryNum,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="selectList" resultMap="BaseResultMap" parameterType="com.model.rights.Role" >
+		select 
+		<include refid="Base_Column_List" />
+		from Role u
+		<where>
+			<if test="id!=null">
+				u.id=#{id}
+			</if>
+			<if test="name!=null and name!=''">
+				and u.name like '%'||#{name}||'%'
+			</if>
+			<if test="description!=null and description!=''">
+				and u.description like '%'||#{description}||'%'
+			</if>
+			<if test="roleType!=null">
+				and u.roleType=#{roleType}
+			</if>
+			<if test="factoryNum!=null and factoryNum!=''">
+				and u.factoryNum=#{factoryNum}
+			</if>
+		</where>
+	</select>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+	    select 
+	    <include refid="Base_Column_List" />
+	    from Role
+	    where ID = #{id,jdbcType=NUMERIC}
+	</select>
+	
+</mapper>

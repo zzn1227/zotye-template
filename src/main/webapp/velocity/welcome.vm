@@ -21,6 +21,7 @@
 		<div class="errorPage">
 			<p>欢迎 $!name</p>
 			<p>当前时间  ${date.format('yyyy-MM-dd',$currentDate)}</p>
+			${date.get('yyyy-MM-dd')}
 			<p>$!message</p>
 		</div>
 		${Constants.NORMAL}

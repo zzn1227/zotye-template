@@ -192,7 +192,7 @@ MainPanel = function(){
             id:'welcome-panel',
             title: '主页面',
             //autoLoad: {url: 'welcome.html', callback: this.initSearch, scope: this},
-            autoLoad:{url: 'role_frameTransfer.do',params:{navigateUrl: 'portal.jsp'}},
+            autoLoad:{url: '/role/frameTransfer.do',params:{navigateUrl: '/welcome.do'}},
             iconCls:'icon-docs',
             closable: false,
             autoScroll: true
@@ -237,7 +237,7 @@ Ext.extend(MainPanel, Ext.TabPanel, {
                 tab.scrollToMember(member);
             }
         }else{
-            var autoLoad = {url: 'role_frameTransfer.do',params:{navigateUrl: href}};
+            var autoLoad = {url: '/role/frameTransfer.do',params:{navigateUrl: href}};
             if(member){
                 autoLoad.callback = function(){
                     Ext.getCmp(id).scrollToMember(member);
@@ -260,7 +260,7 @@ Ext.extend(MainPanel, Ext.TabPanel, {
 	        '<tpl for=".">',
 	        '<div class="search-item">',
 	            '<a class="member" ext:cls="{cls}" ext:member="{member}" href="output/{cls}.html">',
-				'<img src="../resources/images/default/s.gif" class="item-icon icon-{type}"/>{member}',
+				'<img src="./images/default/s.gif" class="item-icon icon-{type}"/>{member}',
 				'</a> ',
 				'<a class="cls" ext:cls="{cls}" href="output/{cls}.html">{cls}</a>',
 	            '<p>{doc}</p>',

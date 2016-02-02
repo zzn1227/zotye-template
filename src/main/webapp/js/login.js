@@ -22,8 +22,8 @@ function check() {
 		success: function(response, option) {
 			var data =Ext.decode(response.responseText);
 			if(data.success){
-				//document.location = "/role_getMainMenu.do";
-				Ext.Msg.alert("提示", "登陆成功");
+				document.location = "/role/getMainMenu.do";
+				//Ext.Msg.alert("提示", "登陆成功");
 			} else {
 				if (data.errorMsg == "weakPassword") {
 					if (confirm("您的密码为弱口令,请点击【确定】按钮修改密码，再登录！")) {　
