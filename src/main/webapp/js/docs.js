@@ -192,7 +192,7 @@ MainPanel = function(){
             id:'welcome-panel',
             title: '主页面',
             //autoLoad: {url: 'welcome.html', callback: this.initSearch, scope: this},
-            autoLoad:{url: '/role/frameTransfer.do',params:{navigateUrl: '/welcome.do'}},
+            autoLoad:{url: '/frameTransfer.do',params:{navigateUrl: '/welcome.do'}},
             iconCls:'icon-docs',
             closable: false,
             autoScroll: true
@@ -237,7 +237,7 @@ Ext.extend(MainPanel, Ext.TabPanel, {
                 tab.scrollToMember(member);
             }
         }else{
-            var autoLoad = {url: '/role/frameTransfer.do',params:{navigateUrl: href}};
+            var autoLoad = {url: '/frameTransfer.do',params:{navigateUrl: href}};
             if(member){
                 autoLoad.callback = function(){
                     Ext.getCmp(id).scrollToMember(member);

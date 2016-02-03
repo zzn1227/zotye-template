@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.model.rights.User;
 import com.service.rights.UserService;
 import com.system.base.ReturnModel;
+import com.utils.Constants;
 import com.utils.MD5;
 import com.utils.PasswordUtils;
 
@@ -27,6 +28,40 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    
+    /**
+     * 登陆
+     * 
+     * @author zhaozhineng
+     * @date 2016-1-30
+     */
+    @RequestMapping(method = RequestMethod.POST, value = "/doLogin")
+    @ResponseBody
+    public ReturnModel doLogin(HttpServletRequest req, User userParam, Map<String, Object> model) {
+        ReturnModel result = new ReturnModel();
+        User userinfo = userService.checkUser(userParam);
+        if (userinfo == null) {
+            result.setErrorMsg("用户名不存在！");
+        } else {
+            if (MD5.verify(userParam.getPassword(), userinfo.getPassword())) {
+                if (Constants.USER_ENABLE == userinfo.getStatus()) {
+                    req.getSession().removeAttribute("userinfo");
+                    req.getSession().setAttribute("userinfo", userinfo);
+                    req.getSession().setMaxInactiveInterval(-1);
+
+                    if (PasswordUtils.isWeakPassword(userParam.getPassword())) {
+                        // 如果密码是弱口令密码 则必须先去修改密码
+                        result.setErrorMsg("weakPassword");
+                    }
+                } else {
+                    result.setErrorMsg("该账户已被冻结，请联系系统管理员！");
+                }
+            } else {
+                result.setErrorMsg("密码错误！");
+            }
+        }
+        return result;
+    }
 
     /**
      * 显示修改密码页面

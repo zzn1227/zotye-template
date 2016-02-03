@@ -11,8 +11,9 @@
 
 	<!-- 对包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
     <context:component-scan base-package="com.controller"/>
-    
+    <!-- 控制根路径跳转 
     <mvc:view-controller path="/" view-name="redirect:/index"/>
+    -->
     
 	<!-- For static resources -->
 	<mvc:resources mapping="/images/**" location="/images/" />
@@ -20,6 +21,40 @@
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.controller.interceptor.LoginInterceptor">
+				<property name="allowUrls">
+					<list>
+						<!-- 如果请求中包含以下路径，则不进行拦截 -->
+						<value>/js</value>
+						<value>/css</value>
+						<value>/less</value>
+						<value>/images</value>
+						<value>/user/doLogin</value>
+						<value>/user/logout</value>
+						
+						<value>/user/register</value>
+						<value>/user/sendRegisterAuthCode</value>
+						<value>/user/sendResetAuthCode</value>
+						<value>/user/sendAuthCodeFail</value>
+						<value>/user/resetPassword</value>
+						<value>/user/checkLogin</value>
+						
+						<!-- test -->
+						<value>/test</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:interceptor>
+		<!-- 返回view时,给分页数组添加分页器，旧的分页插件
+	    <mvc:interceptor>
+	        <mvc:mapping path="/**" />
+	        <bean class="com.github.miemiedev.mybatis.paginator.springmvc.PageListAttrHandlerInterceptor" />
+	    </mvc:interceptor>
+	    -->
+	</mvc:interceptors>	
 	
     <mvc:annotation-driven>
 	    <mvc:message-converters register-defaults="true">
@@ -42,15 +77,6 @@
 	    </mvc:message-converters>
 	</mvc:annotation-driven>
     
-	<!-- 返回view时,给分页数组添加分页器，旧的分页插件
-	<mvc:interceptors>
-	    <mvc:interceptor>
-	        <mvc:mapping path="/**" />
-	        <bean class="com.github.miemiedev.mybatis.paginator.springmvc.PageListAttrHandlerInterceptor" />
-	    </mvc:interceptor>
-	</mvc:interceptors>
-	-->
-
 	<!-- velocity config -->
 	<bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
 		<property name="resourceLoaderPath" value="velocity" />
