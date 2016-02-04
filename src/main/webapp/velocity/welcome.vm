@@ -1,7 +1,7 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="zh-Hans">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Error</title>
 		<script type="text/javascript" src="/js/library/jquery-1.7.2.js"></script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,6 +10,7 @@
 	</head>
 
 	<body onload="document.getElementById('loginName').focus();">
+		<input type="hidden" name="root" id="root" value="${rc.contextPath}" />
 		<table width="920" border="0" align="center" cellpadding="0" cellspacing="0" background="/images/les.jpg">
 			<tr>
 				<td>
@@ -39,7 +40,7 @@
 																<table width="100%" border="0" cellpadding="0" cellspacing="0">
 																	<tr>
 																		<td width="68%" height="45">
-																			&nbsp; <a href="javascript:openWin('/user/changePassword')" id="changePassword"></a>
+																			&nbsp; <a href="javascript:openWin('${rc.contextPath}/user/changePassword')" id="changePassword"></a>
 																		</td>
 																		<td width="10%" style="font-size: 17px" align="right">
 																			<b>生产基地：</b>

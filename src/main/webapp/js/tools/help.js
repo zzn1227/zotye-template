@@ -77,7 +77,6 @@ FormHelper = function () {
 			params: params,
 			success: success,
 			url: Ext.getDom("root").value + url,
-			//url: Ext.getDom("root").value + url,
 			waitMsg: waitMsg,
 			waitTitle: '请稍候'
 		});

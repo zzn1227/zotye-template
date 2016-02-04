@@ -37,10 +37,8 @@ public class MenuController {
      * @author zhaozhineng
      * @date 2016-2-3
      */
-    @RequestMapping(value = "/management")
+    @RequestMapping(value = "")
     public String management() {
-        String path = request.getContextPath();
-        System.out.println("路径" + path);
         return "rights/menu";
     }
 

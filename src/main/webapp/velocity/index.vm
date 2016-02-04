@@ -1,5 +1,5 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="zh-Hans">
 	<head>
 		<title>模板系统</title>
 		<meta charset="utf-8">
@@ -15,7 +15,7 @@
             function logout() {
             	Ext.MessageBox.confirm('注意', '  您确定要注销系统吗?', function(btn) {
             		if ('yes' == btn) {
-            			window.location.href = "/user/logout.do";
+            			window.location.href = "${rc.contextPath}/user/logout.do";
             		}
             	});
             }
@@ -55,7 +55,7 @@
     					</div>
     					<br /> 
 						##<img src="/images/tc1.gif" width="10" height="10" style="padding-left: 5px" /> &nbsp; <a href="javascript:openDialog('rights/techSupport.jsp')" style="color: #FFFFFF">技术支持</a>
-    					<img src="/images/tc2.gif" width="10" height="10" style="padding-left: 5px" /> &nbsp; <a href="javascript:openWin('/user/changePassword.do')" style="color: #FFFFFF">修改密码</a> 
+    					<img src="/images/tc2.gif" width="10" height="10" style="padding-left: 5px" /> &nbsp; <a href="javascript:openWin('${rc.contextPath}/user/changePassword.do')" style="color: #FFFFFF">修改密码</a> 
 						<img src="/images/tc.gif" width="10" height="10" style="padding-left: 5px" /> &nbsp; <a href="javascript:logout()" style="color: #FFFFFF">注销</a>
     				</td>
     			</tr>
