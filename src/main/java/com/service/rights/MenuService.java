@@ -28,7 +28,47 @@ public class MenuService {
     private MenuMapper       menuMapper;
 
     /**
-     * 获取菜单树
+     * 增加菜单
+     * 
+     * @author zhaozhineng
+     * @date 2016-2-3
+     */
+    public int insertMenu(Menu menu) {
+        return menuMapper.insert(menu);
+    }
+
+    /**
+     * 根据id查询单个菜单
+     * 
+     * @author zhaozhineng
+     * @date 2016-2-3
+     */
+    public Menu getMenu(int id) {
+        return menuMapper.selectByPrimaryKey(id);
+    }
+
+    /**
+     * 删除菜单
+     * 
+     * @author zhaozhineng
+     * @date 2016-2-3
+     */
+    public int deleteMenu(Menu menu) {
+        return menuMapper.deleteByPrimaryKey(menu);
+    }
+
+    /**
+     * 修改菜单
+     * 
+     * @author zhaozhineng
+     * @date 2016-2-3
+     */
+    public int updateByPrimaryKeySelective(Menu menu) {
+        return menuMapper.updateByPrimaryKeySelective(menu);
+    }
+
+    /**
+     * 获取展示菜单树，首页用
      * 
      * @author zhaozhineng
      * @date 2016-2-2
@@ -75,7 +115,7 @@ public class MenuService {
     }
 
     /**
-     * 组装子菜单json
+     * 组装展示子菜单json
      * 
      * @author zhaozhineng
      * @date 2016-2-2
@@ -106,6 +146,46 @@ public class MenuService {
             menuBuf = menuBuf.deleteCharAt(menuBuf.length() - 1);
             menuBuf.append("]},");
         }
+    }
+
+    /**
+     * 组装配置菜单树，用于菜单管理
+     */
+    public String assemblyConfigMenuTree(Menu param) {
+        PageHelper.orderBy("orderNum");
+        List<Menu> subList = menuMapper.selectList(param);
+        StringBuffer treeStr = new StringBuffer("[");
+        treeStr.append(assemblyConfigSubMenuTree(subList, param));
+        treeStr.append("]");
+        return treeStr.toString();
+
+    }
+
+    /**
+     * 组装配置子菜单树，用于菜单管理
+     */
+    private String assemblyConfigSubMenuTree(List<Menu> subMenuList, Menu param) {
+        StringBuilder strBuf = new StringBuilder();
+        for (Menu menu : subMenuList) {
+            strBuf.append("{\"id\" : \"" + menu.getId() + "\",");
+            strBuf.append("\"text\" : \"" + menu.getName() + "\",");
+            param.setParentId(menu.getId());
+            PageHelper.orderBy("orderNum");
+            List<Menu> list = menuMapper.selectList(param);
+            if (list != null && list.size() > 0) {
+
+                strBuf.append("\"cls\" :\"fold\",");
+                strBuf.append("\"leaf\" : false");
+            } else {
+                strBuf.append("\"cls\" :'file',");
+                strBuf.append("\"leaf\" : true");
+            }
+            strBuf.append("},");
+        }
+        if (strBuf.length() > 0) {
+            strBuf.delete(strBuf.length() - 1, strBuf.length());
+        }
+        return strBuf.toString();
     }
 
 }

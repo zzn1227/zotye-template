@@ -28,7 +28,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    
+
     /**
      * 登陆
      * 
@@ -61,6 +61,18 @@ public class UserController {
             }
         }
         return result;
+    }
+
+    /**
+     * 注销
+     * 
+     * @author zhaozhineng
+     * @date 2016-2-3
+     */
+    @RequestMapping(value = "/logout")
+    public String logout(HttpServletRequest request) {
+        request.getSession().invalidate();
+        return "redirect:/login";
     }
 
     /**
