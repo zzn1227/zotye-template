@@ -18,11 +18,11 @@ function check() {
 	}
 
 	Ext.Ajax.request({
-		url: Ext.getDom('root').value + "/user/doLogin.do?time=" + new Date().getTime(),
+		url: rootPath + "/user/doLogin.do?time=" + new Date().getTime(),
 		success: function(response, option) {
 			var data =Ext.decode(response.responseText);
 			if(data.success){
-				document.location = Ext.getDom('root').value + "/index.html";
+				document.location = rootPath + "/index.html";
 			} else {
 				if (data.errorMsg == "weakPassword") {
 					if (confirm("您的密码为弱口令,请点击【确定】按钮修改密码，再登录！")) {　

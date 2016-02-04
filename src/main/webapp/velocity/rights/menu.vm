@@ -5,10 +5,10 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>菜单管理</title>
-		#include("/commons/meta.html")
-		<link href="/css/style.css" rel="stylesheet">
-		<script type="text/javascript" src="/js/tools/help.js"></script>
-		<script type="text/javascript" src="/js/rights/menu.js"></script>
+		#parse("commons/meta.vm")
+		<link rel="stylesheet" href="${ctx}/css/style.css">
+		<script type="text/javascript" src="${ctx}/js/tools/help.js"></script>
+		<script type="text/javascript" src="${ctx}/js/rights/menu.js"></script>
 	</head>
 
 	<body>
@@ -25,13 +25,13 @@
 											<script type="text/javascript">
 												Ext.onReady(function() {
 													var chooser = new MenuChooser({
-                                                    	treeurl: Ext.getDom("root").value + MenuURL.treeUrl,
-                                                    	formUrl: Ext.getDom('root').value + MenuURL.formUrl
+                                                    	treeurl: rootPath + MenuURL.treeUrl,
+                                                    	formUrl: rootPath + MenuURL.formUrl
                                                     });
                                                     chooser.showPanel();
 												});
 											</script>
-											<input type="hidden" name="root" id="root" value="${rc.contextPath}" />
+											<input type="hidden" name="root" id="root" value="${ctx}" />
 										</td>
 									</tr>
 								</table>

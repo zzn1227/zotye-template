@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>提示页面</title>
-		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="${rc.contextPath}/css/style.css">
 	</head>
 
 	<body>
@@ -14,11 +14,11 @@
 				<td align="center">
 					<table width="419" height="226" border="0" cellpadding="0" cellspacing="0">
 						<tr>
-							<td align="center" background="/images/error.jpg">
+							<td align="center" background="${rc.contextPath}/images/error.jpg">
 								<table width="388" height="194" border="0" cellpadding="0" cellspacing="0">
 									<tr>
 										<td align="center">
-											<img src="/images/error_b.gif" width="31" height="31"> &nbsp;&nbsp;提示信息： $!error
+											<img src="${rc.contextPath}/images/error_b.gif" width="31" height="31"> &nbsp;&nbsp;提示信息： $!error
 											<br>
 											<br>
 											<input name="Submit" type="submit" class="btn_grey" value="返 回" onClick="history.back();">

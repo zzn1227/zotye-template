@@ -244,6 +244,11 @@
 					<reload>manual</reload>
 					<stopPort>9966</stopPort>
 					<stopKey>foo</stopKey>
+					<!--  
+					<webApp>
+						<contextPath>/zotye</contextPath>
+					</webApp>
+					-->
 				</configuration>
 			</plugin>
 			<!-- 自动生成mybatis配置文件 -->

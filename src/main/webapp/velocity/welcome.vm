@@ -4,12 +4,13 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Error</title>
-		<script type="text/javascript" src="/js/library/jquery-1.7.2.js"></script>
-		<link rel="stylesheet" href="/css/style.css">
+		#parse("commons/meta.vm")
+		<script type="text/javascript" src="${ctx}/js/library/jquery-1.7.2.js"></script>
+		<link rel="stylesheet" href="${ctx}/css/style.css">
 		<script type="text/javascript">
 		 	$(document).ready(function(){
 		 		$("#button").click(function(){
-		 			jQuery.get("/asyncGetCarTypes",function(result){
+		 			jQuery.get("${ctx}/asyncGetCarTypes",function(result){
 		 				alert(result[0].carTypeName);
 		 			});
 		 		})

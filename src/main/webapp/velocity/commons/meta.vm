@@ -1,13 +1,15 @@
-<link rel="stylesheet" type="text/css" href="/css/ext-all.css" /> 
-<script type="text/javascript" src="/js/library/ext-base.js"></script>
-<script type="text/javascript" src="/js/library/ext-all.js"></script>
-<script type="text/javascript" src="/js/library/ext-lang-zh_CN.js"></script>
-<script type="text/javascript" src="/js/factory.js"></script>
-<script type="text/javascript" src="/js/tools/help.js"></script>
-<script type="text/javascript" src="/js/library/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="/js/plugin/jquery.blockUI.js"></script>
+#set($ctx=${rc.contextPath})
+<link rel="stylesheet" type="text/css" href="${ctx}/css/ext-all.css" /> 
+<script type="text/javascript" src="${ctx}/js/library/ext-base.js"></script>
+<script type="text/javascript" src="${ctx}/js/library/ext-all.js"></script>
+<script type="text/javascript" src="${ctx}/js/library/ext-lang-zh_CN.js"></script>
+<script type="text/javascript" src="${ctx}/js/factory.js"></script>
+<script type="text/javascript" src="${ctx}/js/tools/help.js"></script>
+<script type="text/javascript" src="${ctx}/js/library/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="${ctx}/js/plugin/jquery.blockUI.js"></script>
 <script type="text/javascript">
-    Ext.BLANK_IMAGE_URL = '/images/default/s.gif';
+	var rootPath = '${ctx}';
+    Ext.BLANK_IMAGE_URL = '${ctx}/images/default/s.gif';
     var myWaitMask;
     
     function showWaitMask() {
@@ -59,7 +61,7 @@
     			tabPanel.load({
     				url: 'role_frameTransfer.do',
     				params: {
-    					navigateUrl: '/ztles/message_getReceivedList.do'
+    					navigateUrl: rootPath+'/message_getReceivedList.do'
     				}
     			});
     		}
@@ -73,4 +75,3 @@
     	}
     }
 </script>
-

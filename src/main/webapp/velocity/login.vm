@@ -4,14 +4,14 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>模板系统</title>
-		#include("commons/meta.html")
-		<link rel="stylesheet" href="/css/style.css">
-		<script type="text/javascript" src="/js/login.js"></script>
+		#parse("commons/meta.vm")
+		<link rel="stylesheet" href="${ctx}/css/style.css">
+		<script type="text/javascript" src="${ctx}/js/login.js"></script>
 	</head>
 
 	<body onload="document.getElementById('loginName').focus();">
-		<input type="hidden" name="root" id="root" value="${rc.contextPath}" />
-		<table width="920" border="0" align="center" cellpadding="0" cellspacing="0" background="/images/les.jpg">
+		<input type="hidden" name="root" id="root" value="${ctx}" />
+		<table width="920" border="0" align="center" cellpadding="0" cellspacing="0" background="${ctx}/images/les.jpg">
 			<tr>
 				<td>
 					<table width="874" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -40,7 +40,7 @@
 																<table width="100%" border="0" cellpadding="0" cellspacing="0">
 																	<tr>
 																		<td width="68%" height="45">
-																			&nbsp; <a href="javascript:openWin('${rc.contextPath}/user/changePassword')" id="changePassword"></a>
+																			&nbsp; <a href="javascript:openWin('${ctx}/user/changePassword')" id="changePassword"></a>
 																		</td>
 																		<td width="10%" style="font-size: 17px" align="right">
 																			<b>生产基地：</b>
@@ -76,9 +76,9 @@
 																	<tr>
 																		<td height="45">&nbsp;</td>
 																		<td colspan="2" align="center">
-																			<input name="Submit" type="button" style="background:url(/images/button_center_bg.gif)" value="登录系统" onClick="return check()">
+																			<input name="Submit" type="button" style="background:url(${ctx}/images/button_center_bg.gif)" value="登录系统" onClick="return check()">
 																			&nbsp;
-																			<input name="Submit3" type="button" style="background:url(/images/button_center_bg.gif)" value="重  置" onClick="return reset()">
+																			<input name="Submit3" type="button" style="background:url(${ctx}/images/button_center_bg.gif)" value="重  置" onClick="return reset()">
 																		</td>
 																	</tr>
 																</table>

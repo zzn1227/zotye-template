@@ -4,13 +4,13 @@
 		<title>模板系统</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" type="text/css" href="/css/ext-all.css" />
-		<link rel="stylesheet" type="text/css" href="/css/docs.css" />
-		<link rel="stylesheet" type="text/css" href="/css/ext-style.css" />
-		<script type="text/javascript" src="/js/library/ext-base.js"></script>
-		<script type="text/javascript" src="/js/library/ext-all.js"></script>
-		<script type="text/javascript" src="/js/plugin/TabCloseMenu.js"></script>
-		<script type="text/javascript" src="/js/docs.js"></script>
+		<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/ext-all.css" />
+		<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/docs.css" />
+		<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/ext-style.css" />
+		<script type="text/javascript" src="${rc.contextPath}/js/library/ext-base.js"></script>
+		<script type="text/javascript" src="${rc.contextPath}/js/library/ext-all.js"></script>
+		<script type="text/javascript" src="${rc.contextPath}/js/plugin/TabCloseMenu.js"></script>
+		<script type="text/javascript" src="${rc.contextPath}/js/docs.js"></script>
 		<script type="text/javascript">
             function logout() {
             	Ext.MessageBox.confirm('注意', '  您确定要注销系统吗?', function(btn) {
@@ -37,7 +37,7 @@
     	<div id="loading-mask" style=""></div>
     	<div id="loading">
     		<div class="loading-indicator">
-    			<img src="/images/extanim32.gif" width="32" height="32" style="margin-right: 8px;" /> 系统加载中...
+    			<img src="${rc.contextPath}/images/extanim32.gif" width="32" height="32" style="margin-right: 8px;" /> 系统加载中...
     		</div>
     	</div>
     	$!mainMenu
@@ -55,8 +55,8 @@
     					</div>
     					<br /> 
 						##<img src="/images/tc1.gif" width="10" height="10" style="padding-left: 5px" /> &nbsp; <a href="javascript:openDialog('rights/techSupport.jsp')" style="color: #FFFFFF">技术支持</a>
-    					<img src="/images/tc2.gif" width="10" height="10" style="padding-left: 5px" /> &nbsp; <a href="javascript:openWin('${rc.contextPath}/user/changePassword.do')" style="color: #FFFFFF">修改密码</a> 
-						<img src="/images/tc.gif" width="10" height="10" style="padding-left: 5px" /> &nbsp; <a href="javascript:logout()" style="color: #FFFFFF">注销</a>
+    					<img src="${rc.contextPath}/images/tc2.gif" width="10" height="10" style="padding-left: 5px" /> &nbsp; <a href="javascript:openWin('${rc.contextPath}/user/changePassword.do')" style="color: #FFFFFF">修改密码</a> 
+						<img src="${rc.contextPath}/images/tc.gif" width="10" height="10" style="padding-left: 5px" /> &nbsp; <a href="javascript:logout()" style="color: #FFFFFF">注销</a>
     				</td>
     			</tr>
     		</table>

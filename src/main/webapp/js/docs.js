@@ -1,4 +1,4 @@
-Ext.BLANK_IMAGE_URL = '/images/s.gif';
+Ext.BLANK_IMAGE_URL = 'images/s.gif';
 
 Docs = {};
 
@@ -260,7 +260,7 @@ Ext.extend(MainPanel, Ext.TabPanel, {
 	        '<tpl for=".">',
 	        '<div class="search-item">',
 	            '<a class="member" ext:cls="{cls}" ext:member="{member}" href="output/{cls}.html">',
-				'<img src="/images/default/s.gif" class="item-icon icon-{type}"/>{member}',
+				'<img src="../images/default/s.gif" class="item-icon icon-{type}"/>{member}',
 				'</a> ',
 				'<a class="cls" ext:cls="{cls}" href="output/{cls}.html">{cls}</a>',
 	            '<p>{doc}</p>',
