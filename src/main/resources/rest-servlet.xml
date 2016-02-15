@@ -62,12 +62,14 @@
 	            <constructor-arg value="UTF-8" />        
 	        </bean>
 	        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	        	<!--  
 	        	<property name="supportedMediaTypes">
 					<list>
 						<value>text/html;charset=UTF-8</value>
 						<value>application/json;charset=UTF-8</value>
 					</list>
 				</property>
+				-->
 	        	<!-- 返回分页json数组时,添加分页信息 
 	            <property name="objectMapper">
 	                <bean class="com.github.miemiedev.mybatis.paginator.jackson2.PageListJsonMapper" />

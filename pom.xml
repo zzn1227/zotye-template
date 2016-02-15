@@ -147,11 +147,13 @@
 			<version>1.2.3</version>
 		</dependency>
 		<!-- 分页插件 -->
+		<!--  
 		<dependency>
 		    <groupId>com.github.miemiedev</groupId>
 		    <artifactId>mybatis-paginator</artifactId>
 		    <version>1.2.15</version>
 		</dependency>
+		-->
 		<dependency>
 		    <groupId>com.github.pagehelper</groupId>
 		    <artifactId>pagehelper</artifactId>
@@ -244,11 +246,11 @@
 					<reload>manual</reload>
 					<stopPort>9966</stopPort>
 					<stopKey>foo</stopKey>
-					<!--  
 					<webApp>
+						<!-- 设置项目根路径
 						<contextPath>/zotye</contextPath>
+						 -->
 					</webApp>
-					-->
 				</configuration>
 			</plugin>
 			<!-- 自动生成mybatis配置文件 -->

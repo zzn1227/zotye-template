@@ -11,11 +11,4 @@
 		  from cartype a
 	</select>
 	
-	<select id="getCarTypeByPage" resultType="CarType">
-		select a.cartype_num  carTypeNum,
-		       a.cartype_name carTypeName,
-		       a.factory_num  factoryNum
-		  from cartype a
-	</select>
-	
 </mapper>

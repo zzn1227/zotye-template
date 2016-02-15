@@ -192,7 +192,7 @@ MainPanel = function(){
             id:'welcome-panel',
             title: '主页面',
             //autoLoad: {url: 'welcome.html', callback: this.initSearch, scope: this},
-            autoLoad:{url: 'frameTransfer.do',params:{navigateUrl: 'welcome.do'}},
+            autoLoad:{url: 'frameTransfer.do',params:{navigateUrl: 'test/welcome.do'}},
             iconCls:'icon-docs',
             closable: false,
             autoScroll: true

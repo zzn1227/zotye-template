@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.github.miemiedev.mybatis.paginator.domain.Order;
-import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.github.pagehelper.Page;
 import com.model.CarType;
 import com.model.rights.User;
@@ -26,6 +24,7 @@ import com.service.rights.UserService;
 import com.system.page.PageParam;
 
 @Controller
+@RequestMapping(value = "/test")
 public class TestController {
 
     private static final Logger log = LoggerFactory.getLogger(TestController.class);
@@ -45,8 +44,8 @@ public class TestController {
     // Collections.emptyMap();
     // return "index";
     // }
-    
-    @RequestMapping(method = RequestMethod.GET, value = "welcome")
+
+    @RequestMapping(method = RequestMethod.GET, value = "/welcome")
     public String handleRequest(HttpServletRequest req, HttpServletResponse resp, Map<String, Object> model) {
         model.put("name", "赵志能");
         model.put("currentDate", new Date());
@@ -55,49 +54,27 @@ public class TestController {
         return "welcome";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "test")
+    @RequestMapping(method = RequestMethod.GET, value = "")
     @ResponseBody
     public String test(HttpServletRequest request) {
         return "test";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "getCarTypes")
+    @RequestMapping(method = RequestMethod.GET, value = "/getCarTypes")
     public String getCarTypes(HttpServletRequest req, HttpServletResponse resp, Map<String, Object> model) {
         List<CarType> list = carTypeService.getCarTypes();
         model.put("carTypeList", list);
         return "carTypeList";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "getCarTypeByPage")
-    public String getCarTypeByPage(HttpServletRequest req, HttpServletResponse resp, Map<String, Object> model) {
-        int page = 1; // 页号
-        int pageSize = 3; // 每页数据条数
-        PageBounds pageBounds = new PageBounds(page, pageSize, Order.formString("carTypeNum.asc"), true);
-        List<CarType> list = carTypeMapper.getCarTypeByPage(pageBounds);
-
-        model.put("carTypeList", list);
-        return "carTypeList";
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "asyncGetCarTypes")
+    @RequestMapping(method = RequestMethod.GET, value = "/asyncGetCarTypes")
     @ResponseBody
     public List<CarType> asyncGetCarTypes() {
         List<CarType> list = carTypeService.getCarTypes();
         return list;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "asyncGetCarTypeByPage")
-    @ResponseBody
-    public List<CarType> asyncGetCarTypeByPage(HttpServletRequest req, HttpServletResponse resp, Map<String, Object> model) {
-        int page = 1; // 页号
-        int pageSize = 3; // 每页数据条数
-        PageBounds pageBounds = new PageBounds(page, pageSize, Order.formString("carTypeNum.asc"), true);
-        List<CarType> list = carTypeMapper.getCarTypeByPage(pageBounds);
-
-        return list;
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "asyncGetUserByPage")
+    @RequestMapping(value = "/asyncGetUserByPage")
     @ResponseBody
     public List<User> asyncGetUserByPage(Map<String, Object> model) {
         User param = new User();
