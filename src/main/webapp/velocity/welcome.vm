@@ -13,6 +13,15 @@
 		 				alert(result[0].name);
 		 			});
 		 		});
+                $("#block").click(function() {
+                	jQuery.blockUI({message: '<img src=\"${ctx}/css/ajax-loader.gif\" alt=\"请等待，正在处理...\">'});
+					setTimeout(function() {
+                    	jQuery.unblockUI();
+                    }, 3000);
+                });
+                $("#unblock").click(function() {
+                	jQuery.unblockUI();
+                });
 		 	});
 		</script>
 	</head>
@@ -25,7 +34,9 @@
 			<p>$!message</p>
 		</div>
 		${Constants.NORMAL}
-		<button id="button">获取用户</button>
+		<button id="button">获取用户</button><br/>
+		<button id="block">block</button>
+		<button id="unblock">unblock</button>
 		<div id="carTypeDiv"></div>
 		$Constants.USER_ENABLE
 	</body>
