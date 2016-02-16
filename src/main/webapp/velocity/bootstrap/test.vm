@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Error</title>
+		#parse("commons/meta.vm")
+		<link rel="stylesheet" href="${ctx}/css/bootstrap.css">
+		<link rel="stylesheet" href="${ctx}/css/bootstrap-theme.css">
+		<script type="text/javascript" src="${ctx}/js/bootstrap.js"></script>
+	</head>
+
+	<body>
+		<p>
+			<button type="button" class="btn btn-lg btn-default">Default</button>
+			<button type="button" class="btn btn-lg btn-primary">Primary</button>
+			<button type="button" class="btn btn-lg btn-success">Success</button>
+			<button type="button" class="btn btn-lg btn-info">Info</button>
+			<button type="button" class="btn btn-lg btn-warning">Warning</button>
+			<button type="button" class="btn btn-lg btn-danger">Danger</button>
+			<button type="button" class="btn btn-lg btn-link">Link</button>
+		</p>
+		<div class="page-header">
+			<h1>Tables</h1>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Username</th>
+						</tr>
+					</thead>
+					<tbody>
+						#foreach($user in $userList)
+						<tr>
+							<td>$user.id</td>
+							<td>$user.loginName</td>
+							<td>$user.name</td>
+							<td>@fat</td>
+						</tr>
+						#end
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+
+</html>
