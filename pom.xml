@@ -176,6 +176,11 @@
 		
 		<!-- tools -->
 		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.1</version>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.3.2</version>
@@ -238,7 +243,7 @@
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.2.3.v20140905</version>
+				<version>9.2.15.v20160210</version>
 				<configuration>
 					<!--  需要配置jettyXml，否则不能指定端口号
 					<jvmArgs>-Xmx2048M -Xms1024M -XX:PermSize=128M -XX:MaxPermSize=256M</jvmArgs>
